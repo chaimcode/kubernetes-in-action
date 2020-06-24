@@ -1,11 +1,17 @@
+# Kubernets API 版本为 v1
 apiVersion: v1
+# 资源类型为 pod
 kind: Pod
 metadata:
+  # 资源名称为 kubia-maual
   name: kubia-manual
 spec:
   containers:
+  # 指定镜像
   - image: luksa/kubia
+    # 容器名称
     name: kubia
     ports:
+    # 容器监听的端口为 8080
     - containerPort: 8080
       protocol: TCP

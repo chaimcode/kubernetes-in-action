@@ -3,9 +3,14 @@ kind: Service
 metadata:
   name: kubia
 spec:
+  # 会话亲和性, 同一个clientIP 的流量会被发送到同一个 pod
+  sessionAffinity: ClientIP
   ports:
+  # 服务可用端口
   - port: 80
+    # 服务将连接转发到的容器端口
     targetPort: 8080
   selector:
+    # 具有 app=kubia 标签的 pod 都属于该服务
     app: kubia
 

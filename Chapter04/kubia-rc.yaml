@@ -1,14 +1,20 @@
 apiVersion: v1
+# rc 类型
 kind: ReplicationController
 metadata:
+  # rc 名称
   name: kubia
 spec:
+  # 副本数量
   replicas: 3
+  # 标签选择器
   selector:
     app: kubia
+  # 创建新 pod 时候的模板
   template:
     metadata:
       labels:
+        # 模板中的标签必须与标签选择器中的一致, 避免无休止的创建 pod
         app: kubia
     spec:
       containers:
